@@ -12,7 +12,15 @@
 
         public function scritturaInfo(){
             echo $this-> titolo;
-            echo " è un film ".$this-> genere;
+            echo " è un film ";
+
+            // verificare che genere sia un array, se si, trasformare in stringa usando "implode"
+            if (is_array($this -> genere)) {
+                echo implode("/", $this -> genere);
+            } else {
+                echo $this -> genere;
+            }
+
             echo " uscito nel ".$this-> anno;
             echo " diretto da ".$this-> regista;
             echo " con protagonista ".$this-> protagonista."<br>"; 
@@ -40,10 +48,6 @@
     $film_3 -> scritturaInfo();
 ?>
 
-if (is_array($this->genere)) {
-                echo implode("/", $this->genere);
-            } else {
-                echo $this->genere;
-            }
+
 
 
